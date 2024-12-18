@@ -1,7 +1,7 @@
 {
 	"id": "open-in-ia-writer",
 	"name": "Open In iA Writer",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"minAppVersion": "1.7.4",
 	"description": "Open the current Markdown document in iA Writer.",
 	"author": "Lemon695",

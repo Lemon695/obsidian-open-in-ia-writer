@@ -41,11 +41,19 @@ export default class IAWriterPlugin extends Plugin {
 			return;
 		}
 
-		const homePath = process.env.HOME;
-		const vaultName = this.app.vault.getName();
 		const filePath = activeFile.path;
+		const resourcePath = this.app.vault.adapter.getResourcePath(filePath);
 
-		const fullPath = `${homePath}/Documents/Obsidian/${vaultName}/${filePath}`;
+		// 尝试从 resourcePath 中提取实际文件路径
+		const match = resourcePath.match(/app:\/\/[^/]+(.+)\?/);
+		const fullPath = match ? decodeURIComponent(match[1]) : null;
+
+		if (!fullPath) {
+			new Notice('无法获取文件路径');
+			return;
+		}
+
+		console.log(`fullPath=${fullPath}`);
 
 		// 使用MacOS的open命令打开文件
 		exec(`open -a "${this.settings.iaWriterPath}" "${fullPath}"`, (error) => {
