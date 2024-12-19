@@ -1,7 +1,7 @@
 {
-	"name": "obsidian-sample-plugin",
+	"name": "open-in-ia-writer",
 	"version": "1.0.0",
-	"description": "This is a sample plugin for Obsidian (https://obsidian.md)",
+	"description": "Open the current Markdown document in iA Writer.",
 	"main": "main.js",
 	"scripts": {
 		"dev": "node esbuild.config.mjs",
